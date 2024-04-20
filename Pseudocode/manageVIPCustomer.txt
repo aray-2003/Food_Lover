@@ -1,0 +1,55 @@
+function voteDish(dishId, rating):
+    // Record the customer's rating for a dish
+    // Update dish's overall rating in the system
+    // provide feedback or comments
+
+function orderDish(dishId, quantity):
+    // Place an order for a specific dish
+    // Specify the quantity desired
+
+function searchMenu(keyword):
+    // Search for dishes in the menu based on a keyword
+    // Display matching dishes and their details
+
+function browseMenu():
+    // Display the entire menu to the VIP customer
+    // Allow them to explore dishes, view descriptions, and prices
+
+function discussChef(chefId, message):
+    // Send a message to the chef
+    // Discuss dish preferences, modifications, or compliments
+    // Chef can respond with clarifications or suggestions
+
+function discussDeliverer(importerId, message):
+    // Send a message to the food deliverer
+    // Discuss ingredient quality, sourcing, or special requests
+    // Importer can respond with information or alternatives
+
+function complimentChef(chefId):
+    // Compliment the chef for a specific dish or overall culinary skills
+    // count compliment as double normal
+    // Record the compliments and display them publicly
+
+function complimentDeliverer(delivererId):
+    // Compliment the food deliverer for timely and courteous service
+    // count compliment as double normal
+    // Record the compliments and display them publicly
+
+function complainChef(chefId, issue):
+    // Report an issue or complaint related to a dish
+    // Specify the problem (e.g., taste, presentation, quality)
+    // count complain as double normal
+    // System can notify the chef for resolution
+
+function complainDeliverer(delivererId, issue):
+    // Report an issue or complaint related to food delivery
+    // Specify the problem (e.g., late delivery, damaged packaging)
+    // count complain as double normal
+    // System can notify the delivery team for resolution
+
+function applyDiscount(orderId, role):
+    // check if role is VIP customer
+    // if so apply ten percent disocunt to order
+    // Display the updated order summary
+
+
