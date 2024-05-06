@@ -1,6 +1,22 @@
-from tkinter import filedialog
 from PIL import Image, ImageTk
-import customtkinter 
+import customtkinter
+import datetime
+import os
+from dotenv import load_dotenv
+from pymongo import MongoClient 
+
+# Load config from a .env file:
+load_dotenv()
+MONGODB_URI = os.environ['MONGODB_URI']
+
+# Connect to your MongoDB cluster:
+client = MongoClient(MONGODB_URI)
+
+# Access the 'users' database
+db = client["users"]
+
+# Access the 'login_data' collection
+collection = db["login_data"]
 
 test_email = "jonnymoreira03@hotmail.com"
 testpw = "Password"
@@ -57,17 +73,32 @@ def register():
     password_entry = customtkinter.CTkEntry(root, placeholder_text="Password", width=250, placeholder_text_color="grey", text_color="black", fg_color="white")
     password_entry.place(relx=0.4, rely=0.5)
 
-    customtkinter.CTkButton(root, text="Enter", fg_color='black', text_color="white").place(relx=0.45, rely=0.55)
+    def submit():
+        # Get the user's input
+        name = name_entry.get()
+        email = email_entry.get()
+        password = password_entry.get()
+
+        # Store the user's login data in the database
+        collection.insert_one({"name": name, "email": email, "password": password})
+
+
+    customtkinter.CTkButton(root, text="Enter", command=submit, fg_color='black', text_color="white").place(relx=0.45, rely=0.55)
+
+
 
 
     
 
 def enterPassword(email, pw):
-    if test_email == email and testpw == pw:
+    # Search the database for the user's login data
+    user = collection.find_one({"email": email})
+
+    if user is not None and user["password"] == pw:
         newwin()
         customtkinter.CTkLabel(root, text="HELLO USER", compound="left",font=("Futura", 20, "bold"),justify="center", text_color="black", bg_color="white").place(relx=0.44, rely= 0.5)
     else:
-        customtkinter.CTkLabel(root, text=" No User Found", compound="left",font=("Futura", 20, "bold"),justify="center", text_color="black", bg_color="white").place(relx=0.44, rely= 0.6)
+        customtkinter.CTkLabel(root, text="No User Found", compound="left",font=("Futura", 20, "bold"),justify="center", text_color="black", bg_color="white").place(relx=0.44, rely= 0.6)
 
 
 
