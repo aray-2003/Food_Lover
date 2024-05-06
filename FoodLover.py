@@ -7,6 +7,7 @@ from pymongo import MongoClient
 
 # Load config from a .env file:
 load_dotenv()
+
 MONGODB_URI = os.environ['MONGODB_URI']
 
 # Connect to your MongoDB cluster:
@@ -98,7 +99,7 @@ def enterPassword(email, pw):
         newwin()
         customtkinter.CTkLabel(root, text="HELLO USER", compound="left",font=("Futura", 20, "bold"),justify="center", text_color="black", bg_color="white").place(relx=0.44, rely= 0.5)
     else:
-        customtkinter.CTkLabel(root, text="No User Found", compound="left",font=("Futura", 20, "bold"),justify="center", text_color="black", bg_color="white").place(relx=0.44, rely= 0.6)
+        customtkinter.CTkLabel(root, text="Incorrect user information", compound="left",font=("Futura", 20, "bold"),justify="center", text_color="black", bg_color="white").place(relx=0.44, rely= 0.6)
 
 
 
