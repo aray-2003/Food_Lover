@@ -71,7 +71,7 @@ def register():
     email_entry = customtkinter.CTkEntry(root, placeholder_text="Email", width=250, placeholder_text_color="grey", text_color="black", fg_color="white")
     email_entry.place(relx=0.4, rely=0.45)
 
-    password_entry = customtkinter.CTkEntry(root, placeholder_text="Password", width=250, placeholder_text_color="grey", text_color="black", fg_color="white")
+    password_entry = customtkinter.CTkEntry(root, placeholder_text="Password", show="*", width=250, placeholder_text_color="grey", text_color="black", fg_color="white")
     password_entry.place(relx=0.4, rely=0.5)
 
     def submit():
